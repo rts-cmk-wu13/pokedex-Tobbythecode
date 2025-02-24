@@ -6,9 +6,12 @@
 
 #root{
     display: grid;
-    grid-template-columns: [fullw-start] 1.5rem [content-start] repeat(3, 1fr) [content-end] 1.5rem [fullw-end];
+    grid-template-columns: [fullw-start] 0.5rem [content-start] repeat(3, 1fr) [content-end] 0.5rem [fullw-end];
+gap: 0.5rem;
 
 }
+
+
 
 img{
 width: 100%;
@@ -64,3 +67,45 @@ footer>* {
 }
 
 
+.pokedex__pokemon-container{
+
+    position: relative;
+    border-radius: 0.5rem;
+padding: 0.3rem;
+        box-shadow: 0px 2px 10px 3px rgb(211, 211, 211);
+}
+
+.pokedex__pokemon-link{
+    position: absolute; inset: 0;
+}
+
+.pokemon-name{
+
+margin-block: 0.5rem;
+
+
+}
+
+.pokelist{
+
+    gap: 0.5rem;
+}
+
+.header_main{
+
+    background-color: #DC0A2D;
+}
+
+
+.pokemon-figure{
+
+    height: 6rem;
+
+}
+
+
+.pokemon__number-tag{
+
+    display: flex;
+    flex-direction: row-reverse;
+}
