@@ -1,30 +1,21 @@
+function getIdFromPokemon(pokemonUrl) {
+    return pokemonUrl.slice(0, -1).split("/").pop()
+}
+const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
+
     let sectionElm = document.createElement("section")
     sectionElm.className = "pokelist"
 
     fetch("/data/pokemon.json")
-        .then(function (response) {
+    .then(function(response) {
+        return response.json()
+    }).then(
+        function(data) {
+            sectionElm.innerHTML =  data.map(pokemon => `
 
-            return response.json()
-
-        }).then(
-            function (data) {
-            
-            sectionElm.innerHTML = data.map(function (pokemon) {
-
-            let id = pokemon.url.slice(0, -1).split("/").pop()
-         
-
-        
-
-           
-
-
-
-                    return `
-    <article >
-
+    <article>
     <figure class="pokemon-figure">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="">
+    <img src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
     </figure>
     <p class="pokemon-name">${pokemon.name} </p>
     <a href="pokemon_details.html?id=${pokemon.url}" >
@@ -32,16 +23,14 @@
           More
           
           </a>
-    </article>
-
-
-    `
+    </article> 
+    `).join("")
                 
-                }).join("")
+              
 
             
 
-                // sectionElm.append(divElm)
+            
             }
         )
 
