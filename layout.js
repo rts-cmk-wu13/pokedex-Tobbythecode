@@ -1,17 +1,14 @@
 let divElm = document.createElement("div")
-
 divElm.id = "root"
 
 divElm.innerHTML = `
 
-<header>
-<span class="brand">pokedex</span>
+<header class="header_main" >
 </header>
-<main>
-
+<main class="pokedex_main">
 </main>
-<footer>
-created 2025
+<footer class="footer_main">
+
 </footer>`
 
 document.querySelector("body").append(divElm)
