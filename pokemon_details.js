@@ -18,16 +18,7 @@ let pokeName = params.get("name")
 let sectionElm = document.createElement("section")
 sectionElm.classList.add("columns")
 
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`)
-    .then(response => response.json())
-    .then(species => {
 
-        let flavorTextEntry = species.flavor_text_entries.find(entry => entry.language.name ==="en");
-        let flavorText = flavorTextEntry ? flavorTextEntry.flavor_text.replace(/\n|\f/g, ' ') : "No description available.";
-
-        console.log(flavorText); // Display in the console
-        document.getElementById("pokemon-description").textContent = flavorText; // Example: Display in an HTML element
-    })
 
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
@@ -35,26 +26,53 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then(pokemon => {
         console.log(pokemon);
 
+        fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`)
+        .then(response => response.json())
+        .then(species => {
+  
+            let flavorTextEntry = species.flavor_text_entries.find(entry => entry.language.name === "en");
+            let flavorText = flavorTextEntry ? flavorTextEntry.flavor_text.replace(/\n|\f/g, ' ') : "No description available.";
+
+    
+
         sectionElm.innerHTML =`
         
 <article  class="pokedex__pokemon-container_details no-columns " >
-    
+    <div class="pokemon__name_info_tag">
 <p class="pokemon-name_detail">${pokemon.name} </p>
-<p>#${pokemon.id.toString().padStart(4, "0")}</p>
-
+<p class="pokemon__tag-num">#${pokemon.id.toString().padStart(4, "0")}</p>
+</div>
 
 
         <figure class="pokemon-figure_details ">
             <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
         </figure>
+        <p class="pokemon_typing">${pokemon.types.map(type => type.type.name).join(",")}</p>
+        <p class="pokedex_details_about-text">
+  About
+</p>    
         <section class="pokemon_info-text">
+            <div>
+            <span>${pokemon.weight}</span>
             <p>weight</p>
-        <p>${pokemon.weight}</p>
+      
+       
+        </div>
+        <div>
+             <span>${pokemon.height}</span>
         <p>height</p>
- <p>${pokemon.height}</p>
+
+ </div>
+ <div> 
+        
+
+ <span class="pokemon_abilities">${pokemon.abilities.map(ability => ability.ability.name).join(",")}</span>
  <p>abilities</p>
- <p class="pokemon_abilities">${pokemon.abilities.map(ability => ability.ability.name).join(",")}</p>
+
+
+ </div>
  </section>
+ <p class="pokemon__flavor-text">${flavorText}</p>
         </article>
 
    
@@ -67,8 +85,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             ${pokemon.stats.map(function(singleStat){
                 return `
                 <tr >
-                <th >${singleStat.stat.name}</th>
-                <td>${singleStat.base_stat}</td>
+                <th class="pokemon__stat_name">${singleStat.stat.name}</th>
+                <td class="pokemon__stat_number">${singleStat.base_stat}</td>
                 <td class="pokedex__pokemon-progressbar"><meter id="file" max="250" value="${singleStat.base_stat}"></td>
                 </tr>
                 `
@@ -78,9 +96,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
 
 
         `
-
-document.querySelector("main").append(sectionElm)
     })
+})
+document.querySelector("main").append(sectionElm)
+
  
 
   

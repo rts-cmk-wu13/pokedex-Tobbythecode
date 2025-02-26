@@ -1,4 +1,55 @@
+
 @font-face {
-    font-family: pop;
+    font-family: 'pop-thin';
+    src: url(/fonts/Poppins-thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'pop-ext-light';
+    src: url(/fonts/Poppins-ExtraLight.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'pop-light';
+    src: url(/fonts/Poppins-light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'pop-regular';
+    src: url(/fonts/Poppins-Regular.ttf);
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: 'pop-medium';
+    src: url(/fonts/Poppins-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'pop-semibold';
+    src: url(/fonts/Poppins-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'pop-bold';
+    src: url(/fonts/Poppins-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'pop-ext-bold';
+    src: url(/fonts/Poppins-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'pop-black';
     src: url(/fonts/Poppins-Black.ttf);
+    font-weight: 900;
 }

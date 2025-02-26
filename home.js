@@ -50,7 +50,7 @@ headerElm.innerHTML = `
         </figure>
     </article>
     <form action="get" class="pokedex-form">
-        <input type="text" placeholder="Search Pokémon...">
+        <input type="text" placeholder=" Search">
         <button type="submit">Search</button>
     </form>
 </section>
