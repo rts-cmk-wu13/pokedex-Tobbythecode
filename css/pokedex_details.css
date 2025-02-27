@@ -118,7 +118,13 @@ border: none;
     font-family: 'pop-regular';
     font-weight: 500;
     font-size: 0.825rem;
+ 
     
+}
+
+.bg{
+
+    background-color: var(--white);
 }
 
 
@@ -196,4 +202,77 @@ font-size: 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.pokemon_typing{
+color: white;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    
+}
+
+.pokemon_type{
+    font-family: 'pop-bold';
+    font-size: var(--subtitle-3-bold);
+    border-radius: 1.75rem;
+    padding-inline: 0.5rem;
+}
+
+
+.color--grass{
+
+    background-color: var(--grass-type);
+}
+
+.color--bug{
+    background-color: var(---bug-type);
+}
+.color--dark{ 
+    background-color: var(---dark-type);
+}
+.color--dragon{ 
+background-color: var(--dragon-type);
+}
+.color--electric{
+     background-color: var(--electric-type);
+}
+.color--fairy{
+    background-color: var(--fairy-type );
+}
+.color--fighting{ 
+    background-color: var(--fighting-type);
+}
+.color--fire{
+    background-color: var(--fire-type) ;
+}
+.color--flying{
+    background-color: var(--flying-type );
+}
+.color--ghost{
+    background-color: var(--ghost-type) ;
+}
+.color--normal{
+    background-color: var(--normal-type);
+}
+.color--ground{
+    background-color: var(--ground-type) ;
+}
+.color--ice{ 
+      background-color: var(--ice-type);
+}
+.color--poison{
+      background-color: var(--poison-type);
+}
+.color--psychic{
+    background-color: var(--psychic-type );
+}
+.color--rock{
+    background-color: var(--rock-type);
+}
+.color--steel{
+    background-color: var(--steel-type);
+}
+.color--water{
+background-color: var(--water-type);
 }

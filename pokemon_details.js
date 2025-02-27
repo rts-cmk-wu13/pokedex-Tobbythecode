@@ -26,6 +26,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then(pokemon => {
         console.log(pokemon);
 
+  let bodyElm = document.querySelector("body")
+    console.log(bodyElm)
+
+    bodyElm.classList.add(`color--${pokemon.types[0].type.name}`)
+
+
+    
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`)
         .then(response => response.json())
         .then(species => {
@@ -33,26 +40,31 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             let flavorTextEntry = species.flavor_text_entries.find(entry => entry.language.name === "en");
             let flavorText = flavorTextEntry ? flavorTextEntry.flavor_text.replace(/\n|\f/g, ' ') : "No description available.";
 
-    
+  
 
-        sectionElm.innerHTML =`
-        
-<article  class="pokedex__pokemon-container_details no-columns " >
+        sectionElm.innerHTML =`     
+
+<article  class="pokedex__pokemon-container_details no-columns bg " >
     <div class="pokemon__name_info_tag">
 <p class="pokemon-name_detail">${pokemon.name} </p>
 <p class="pokemon__tag-num">#${pokemon.id.toString().padStart(4, "0")}</p>
 </div>
 
 
+ 
         <figure class="pokemon-figure_details ">
             <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
         </figure>
-        <p class="pokemon_typing">${pokemon.types.map(type => type.type.name).join(",")}</p>
+
+        <p class="pokemon_typing">
+    ${pokemon.types.map(type => `<span class="pokemon_type color--${type.type.name}">${type.type.name}</span>`).join("")}
+</p>
+
         <p class="pokedex_details_about-text">
   About
 </p>    
         <section class="pokemon_info-text">
-            <div>
+            <div >
             <span>${pokemon.weight}</span>
             <p>weight</p>
       
@@ -64,7 +76,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
 
  </div>
  <div> 
-        
+      
 
  <span class="pokemon_abilities">${pokemon.abilities.map(ability => ability.ability.name).join(",")}</span>
  <p>abilities</p>
@@ -73,7 +85,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
  </div>
  </section>
  <p class="pokemon__flavor-text">${flavorText}</p>
-        </article>
+    
 
    
         
@@ -94,8 +106,11 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             }
         </table>
 
+   </article>
+        ` 
+           let typeElm = document.querySelector(".pokemon_type") 
 
-        `
+    typeElm.classList.add(`color--${pokemon.types[0].type.name}`)
     })
 })
 document.querySelector("main").append(sectionElm)
