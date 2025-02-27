@@ -1,0 +1,57 @@
+:root{
+/* color */
+--Primary-red: #DC0A2D;
+/* pokemon types color */
+--bug-type:#A7B723;
+--dark-type: #75574C;
+--dragon-type: #7037FF;
+--electric-type: #F9CF30;
+--fairy-type: #E69EAC;
+--fighting-type: #C12239;
+--fire-type: #F57D31;
+--flying-type: #A891EC;
+--ghost-type: #70559B;
+--normal-type:#AAA67F;
+--grass-type: #74CB48;
+--ground-type: #DEC16B;
+--ice-type: #DEC16B;
+--poison-type:#A43E9E;
+--psychic-type: #FB5584;
+--rock-type:#B69E31;
+--steel-type:#B7B9D0;
+--water-type: #6493EB;
+/* gray scale */
+--dark: #212121;
+--medium: #666666;
+--light: #E0E0E0;
+--background: #EFEFEF;
+--white: #EFEFEF;
+/* typography */
+/* header */
+--headline-reg: 24px;
+--headline-bold: 32px;
+--subtitle-3-reg: 10px;
+--subtitle-3-bold: 16px;
+--subtitle-1-reg: 14px;
+--subtitle-1-bold: 16px;
+--subtitle-2-reg: 12px;
+--subtitle-2-bold: 16px;
+/* body */
+--body-3-regular: 10px;
+--body-3-bold: 16px;
+--body-1-regular: 14px;
+--body-1-bold: 16px;
+--body-2-regular: 12px;
+--body-2-bold: 16px;
+--caption-regular: 8px;
+--caption-bold: 12px;
+/* elevation */
+/* drop shadow */
+--dropshadow-1: 0.125rem;
+--dropshadow-2: 0.375rem;
+/* inner shadow */
+--innershadow-1: 0.125rem;
+
+
+}
+
